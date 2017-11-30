@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="modeloConceitualER" nsURI="http://www.example.org/modeloConceitualER"
+    nsPrefix="modeloConceitualER">
+  <eClassifiers xsi:type="ecore:EClass" name="Schema">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Elements" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Elements" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributelinksource" upperBound="-1"
+        eType="#//AttributeLink" eOpposite="#//AttributeLink/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationshiplink" upperBound="-1"
+        eType="#//RelationshipLink" eOpposite="#//RelationshipLink/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWeak" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationshiplink" upperBound="2"
+        eType="#//RelationshipLink" eOpposite="#//RelationshipLink/relationship"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isIdentifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributelinktarget" lowerBound="1"
+        eType="#//AttributeLink" eOpposite="#//AttributeLink/attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cardinality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCompound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeLink" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+        eType="#//Attribute" eOpposite="#//Attribute/attributelinktarget"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        eType="#//Elements" eOpposite="#//Elements/attributelinksource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationshipLink" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Entity" eOpposite="#//Entity/relationshiplink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationship" lowerBound="1"
+        eType="#//Relationship" eOpposite="#//Relationship/relationshiplink"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="participation" eType="#//ParticipationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cardinality" eType="#//CardinalityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isIdentifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="STRING"/>
+    <eLiterals name="BOOLEAN" value="1" literal="BOOLEAN"/>
+    <eLiterals name="TIMESTAMP" value="2"/>
+    <eLiterals name="FLOAT" value="3"/>
+    <eLiterals name="INTEGER" value="4"/>
+    <eLiterals name="CLOB" value="5"/>
+    <eLiterals name="BLOB" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CardinalityType">
+    <eLiterals name="ONE"/>
+    <eLiterals name="MANY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParticipationType">
+    <eLiterals name="PARTIAL"/>
+    <eLiterals name="TOTAL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttributeType">
+    <eLiterals name="COMMON"/>
+    <eLiterals name="DERIVED" value="1"/>
+    <eLiterals name="MULTIVALUED" value="2"/>
+    <eLiterals name="IDENTIFIER" value="3"/>
+    <eLiterals name="DISCRIMINATOR" value="4"/>
+  </eClassifiers>
+</ecore:EPackage>

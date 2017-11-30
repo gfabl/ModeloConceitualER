@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ModeloConceitualER/src-gen" creationIcons="false"
+    editDirectory="/ModeloConceitualER.edit/src-gen" editorDirectory="/ModeloConceitualER.editor/src-gen"
+    modelPluginID="ModeloConceitualER" modelName="ModeloConceitualER" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>modeloConceitualER.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="ModeloConceitualER" disposableProviderFactory="true" ecorePackage="modeloConceitualER.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="modeloConceitualER.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/TIMESTAMP"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/CLOB"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//DataType/BLOB"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="modeloConceitualER.ecore#//CardinalityType">
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//CardinalityType/ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//CardinalityType/MANY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="modeloConceitualER.ecore#//ParticipationType">
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//ParticipationType/PARTIAL"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//ParticipationType/TOTAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="modeloConceitualER.ecore#//AttributeType">
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//AttributeType/COMMON"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//AttributeType/DERIVED"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//AttributeType/MULTIVALUED"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//AttributeType/IDENTIFIER"/>
+      <genEnumLiterals ecoreEnumLiteral="modeloConceitualER.ecore#//AttributeType/DISCRIMINATOR"/>
+    </genEnums>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Schema">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Schema/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Schema/link"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Elements">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Elements/attributelinksource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Elements/name"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Entity/relationshiplink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Entity/isWeak"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Relationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Relationship/relationshiplink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Relationship/isIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Attribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//Attribute/attributelinktarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/isNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/isUnique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//Attribute/isCompound"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//Link"/>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//AttributeLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//AttributeLink/attribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//AttributeLink/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="modeloConceitualER.ecore#//RelationshipLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//RelationshipLink/entity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modeloConceitualER.ecore#//RelationshipLink/relationship"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//RelationshipLink/participation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//RelationshipLink/cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//RelationshipLink/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modeloConceitualER.ecore#//RelationshipLink/isIdentifier"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
